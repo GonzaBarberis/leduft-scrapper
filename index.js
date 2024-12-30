@@ -5,8 +5,6 @@ require("dotenv").config();
 
 const http = require("http");
 
-const schedule = require("node-schedule");
-
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const id = process.env.CHAT_ID;
 
