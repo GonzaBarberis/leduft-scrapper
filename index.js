@@ -90,4 +90,4 @@ console.log("Iniciando scrapeo...");
 scrapeoPerfumes();
 
 // Configurar el intervalo de 12 horas
-//setInterval(scrapeoPerfumes, 1000 * 60 * 60 * 12);
+setInterval(scrapeoPerfumes, 1000 * 60 * 60 * 12);
