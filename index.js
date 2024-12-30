@@ -3,6 +3,8 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 require("dotenv").config();
 
+const schedule = require("node-schedule");
+
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const id = process.env.CHAT_ID;
 
@@ -84,4 +86,9 @@ console.log("Iniciando scrapeo...");
 scrapeoPerfumes();
 
 // Configurar el intervalo de 12 horas
-setInterval(scrapeoPerfumes, 1000 * 60 * 60 * 12);
+//setInterval(scrapeoPerfumes, 1000 * 60 * 60 * 12);
+
+schedule.scheduleJob("0 */12 * * *", async () => {
+  console.log("Ejecutando scrapeo programado...");
+  await scrapeoPerfumes();
+});
