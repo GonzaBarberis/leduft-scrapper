@@ -62,9 +62,8 @@ async function scrapeoPerfumes() {
       const msg =
         `📢❗ <b>¡Actualización de LeDuft!</b>\n\n` +
         `<b>Total disponibles:</b> ${cantidad}\n\n` +
-        `<b>Nuevos perfumes añadidos:</b>\n<ul>` +
-        nuevosPerfumes.map((nombre) => `<li>${nombre}</li>`).join("") +
-        `</ul>`;
+        `<b>Nuevos perfumes añadidos:</b>\n` +
+        nuevosPerfumes.map((nombre, index) => `${index + 1}. ${nombre}`).join("\n");
 
       await bot.telegram.sendMessage(id, msg, { parse_mode: "HTML" });
 
