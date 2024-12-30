@@ -1,18 +1,15 @@
 {
-  "name": "scrapper-leduft",
+  "name": "scraper-leduft",
   "version": "1.0.0",
-  "description": "",
+  "description": "Scraper para LeDuft con notificaciones en Telegram",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "postinstall": "npx puppeteer install"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "chrome-aws-lambda": "^10.1.0",
-    "dotenv": "^16.4.7",
-    "puppeteer-core": "^10.4.0",
-    "telegraf": "^4.16.3"
+    "puppeteer": "^21.0.0",
+    "telegraf": "^4.12.2",
+    "dotenv": "^16.0.3"
   }
 }
