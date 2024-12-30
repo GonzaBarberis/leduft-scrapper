@@ -31,10 +31,10 @@ async function savePerfumeData(data) {
 
 async function scrapeoPerfumes() {
   const browser = await puppeteer.launch({
-    args: chromium.args,
+    args: [...chromium.args, "--no-sandbox", "--disable-setuid-sandbox"],
     defaultViewport: chromium.defaultViewport,
-    executablePath: await chromium.executablePath,
-    headless: chromium.headless,
+    executablePath: (await chromium.executablePath) || "/usr/bin/chromium-browser",
+    headless: true,
   });
 
   try {
