@@ -1,5 +1,6 @@
 const { Telegraf } = require("telegraf");
-const puppeteer = require("puppeteer");
+const chromium = require("chrome-aws-lambda");
+const puppeteer = require("puppeteer-core");
 const fs = require("fs");
 require("dotenv").config();
 
@@ -30,13 +31,10 @@ async function savePerfumeData(data) {
 
 async function scrapeoPerfumes() {
   const browser = await puppeteer.launch({
-    ignoreHTTPSErrors: true,
-    headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    defaultViewport: {
-      width: 1200,
-      height: 800,
-    },
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath,
+    headless: chromium.headless,
   });
 
   try {
